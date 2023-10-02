@@ -7,8 +7,11 @@ import close from "./cross.png";
 import etherlogo from "./etherlogo.png";
 import homeicon from "./homeicon.png";
 import lock from "./lock.png";
+import wallet from "./wallet.png";
+import arrowLeft from './arrowLeft.png'
 
 export default {
+  wallet,
   uniswap,
   search,
   ether,
@@ -18,4 +21,5 @@ export default {
   etherlogo,
   homeicon,
   lock,
+  arrowLeft,
 };

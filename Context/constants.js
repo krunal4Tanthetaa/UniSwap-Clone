@@ -5,11 +5,11 @@ import swapMultiHop from './SwapMultiHop.json';
 import IWETH from './IWETH.json'
 
 //   BOO TOKEN
-export const BooTokenAddress ="0x9D3999af03458c11C78F7e6C0fAE712b455D4e33";
+export const BooTokenAddress ="0xc4Fe39a1588807CfF8d8897050c39F065eBAb0B8";
 export const BooTokenABI = booToken.abi;
 
 //   LIFE TOKEN
-export const LifeTokenAddress ="0xc4Fe39a1588807CfF8d8897050c39F065eBAb0B8";
+export const LifeTokenAddress ="0x8731d45ff9684d380302573cCFafd994Dfa7f7d3";
 export const LifeTokenABI = lifeToken.abi;
 
 //   Swap SingleSwapToken

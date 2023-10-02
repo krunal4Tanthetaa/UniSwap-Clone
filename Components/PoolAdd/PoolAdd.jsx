@@ -46,72 +46,73 @@ const PoolAdd = () => {
         }
     };
     return (
-        <div className={Style.PoolAdd_box}>
+        <div className={Style.PoolAdd}>
             <div className={Style.PoolAdd_box}>
-                <div className={Style.PoolAdd_box_header}>
-                    <div className={Style.PoolAdd_box_header_left}>
-                        <Image
-                            src={images.arrowLeft}
-                            alt="image"
-                            width={30}
-                            height={30}
-                        />
+                <div className={Style.PoolAdd_box}>
+                    <div className={Style.PoolAdd_box_header}>
+                        <div className={Style.PoolAdd_box_header_left}>
+                            <Image
+                                src={images.arrowLeft}
+                                alt="image"
+                                width={30}
+                                height={30}
+                            />
+                        </div>
+                        <div className={Style.PoolAdd_box_header_middle}>
+                            <p>Add Liqudity</p>
+                        </div>
+                        <div className={Style.PoolAdd_box_header_right}>
+                            <p>Clear All</p>
+                            <Image
+                                src={images.close}
+                                alt="image"
+                                width={50}
+                                height={50}
+                                onClick={() => setOpenModel(true)}
+                            />
+                        </div>
                     </div>
-                    <div className={Style.PoolAdd_box_header_middle}>
-                        <p>Add Liqudity</p>
-                    </div>
-                    <div className={Style.PoolAdd_box_header_right}>
-                        <p>Clear All</p>
-                        <Image
-                            src={images.close}
-                            alt="image"
-                            width={50}
-                            height={50}
-                            onClick={() => setOpenModel(true)}
-                        />
-                    </div>
-                </div>
 
-                {/* // SELECT PRICE RANGE */}
-                <div className={Style.PoolAdd_box_price}>
-                    {/* //LEFT */}
-                    <div className={Style.PoolAdd_box_price_left}>
-                        <h4> Select Price</h4>
-                        <div className={Style.PoolAdd_box_price_left_token}>
-                            <div
-                                className={
-                                    Style.PoolAdd_box_price_left_token_info
-                                }
-                            >
-                                <p>
-                                    <Image
-                                        src={images.etherlogo}
-                                        alt="image"
-                                        width={20}
-                                        height={20}
-                                    />
-                                </p>
-                                <p>UNI</p>
-                                <p>❔</p>
+                    {/* // SELECT PRICE RANGE */}
+                    <div className={Style.PoolAdd_box_price}>
+                        {/* //LEFT */}
+                        <div className={Style.PoolAdd_box_price_left}>
+                            <h4> Select Price</h4>
+                            <div className={Style.PoolAdd_box_price_left_token}>
+                                <div
+                                    className={
+                                        Style.PoolAdd_box_price_left_token_info
+                                    }
+                                >
+                                    <p>
+                                        <Image
+                                            src={images.etherlogo}
+                                            alt="image"
+                                            width={20}
+                                            height={20}
+                                        />
+                                    </p>
+                                    <p>UNI</p>
+                                    <p>❔</p>
+                                </div>
+                                <div
+                                    className={
+                                        Style.PoolAdd_box_price_left_token_info
+                                    }
+                                    onClick={() => setOpenTokenModel(true)}
+                                >
+                                    <p>
+                                        <Image
+                                            src={images.etherlogo}
+                                            alt="image"
+                                            width={20}
+                                            height={20}
+                                        />
+                                    </p>
+                                    <p>WETH</p>
+                                    <p>❔</p>
+                                </div>
                             </div>
-                            <div
-                                className={
-                                    Style.PoolAdd_box_price_left_token_info
-                                }
-                                onClick={() => setOpenTokenModel(true)}
-                            >
-                                <p>
-                                    <Image
-                                        src={images.etherlogo}
-                                        alt="image"
-                                        width={20}
-                                        height={20}
-                                    />
-                                </p>
-                                <p>WETH</p>
-                                <p>❔</p>
-                            </div>
-
                             {/* //FEE */}
                             <div className={Style.PoolAdd_box_price_left_fee}>
                                 <div
@@ -132,163 +133,176 @@ const PoolAdd = () => {
                                     </button>
                                 )}
                             </div>
-                        </div>
-                        {/*  // FEE LIST */}
-                        {openFee && (
-                            <div className={Style.PoolAdd_box_price_left_list}>
-                                {feePairs.map((el, i) => (
-                                    <div
-                                        className={
-                                            Style.PoolAdd_box_price_left_list_item
-                                        }
-                                        key={i + 1}
-                                        onClick={() => setActive(i + 1)}
-                                    >
+
+                            {/*  // FEE LIST */}
+                            {openFee && (
+                                <div
+                                    className={
+                                        Style.PoolAdd_box_price_left_list
+                                    }
+                                >
+                                    {feePairs.map((el, i) => (
                                         <div
                                             className={
                                                 Style.PoolAdd_box_price_left_list_item
                                             }
+                                            key={i + 1}
+                                            onClick={() => setActive(i + 1)}
                                         >
-                                            <p>{el.fee}</p>
-                                            <p>
-                                                {active == i + 1 ? (
-                                                    <Image
-                                                        src={images.tick}
-                                                        alt="image"
-                                                        width={20}
-                                                        height={20}
-                                                    />
-                                                ) : (
-                                                    ""
-                                                )}
+                                            <div
+                                                className={
+                                                    Style.PoolAdd_box_price_left_list_item
+                                                }
+                                            >
+                                                <p>{el.fee}</p>
+                                                <p>
+                                                    {active == i + 1 ? (
+                                                        <Image
+                                                            src={images.tick}
+                                                            alt="image"
+                                                            width={20}
+                                                            height={20}
+                                                        />
+                                                    ) : (
+                                                        ""
+                                                    )}
+                                                </p>
+                                            </div>
+
+                                            <small>{el.info}</small>
+                                            <p
+                                                className={
+                                                    Style.PoolAdd_box_price_left_list_item_para
+                                                }
+                                            >
+                                                {el.number}
                                             </p>
                                         </div>
+                                    ))}
+                                </div>
+                            )}
 
-                                        <small>{el.info}</small>
+                            {/* DEPOSITE AMOUNT */}
+                            <div className={Style.PoolAdd_box_deposit}>
+                                <h4>Deposite Amount</h4>
+
+                                <div className={Style.PoolAdd_box_deposit_box}>
+                                    <input type="text" placeholder="0" />
+                                    <div
+                                        className={
+                                            Style.PoolAdd_box_deposit_box_input
+                                        }
+                                    >
+                                        <p>
+                                            <small>UNI</small> Uniswap
+                                        </p>
                                         <p
                                             className={
-                                                Style.PoolAdd_box_price_left_list_item_para
+                                                Style.PoolAdd_box_deposit_box_input_item
                                             }
                                         >
-                                            {el.number}
+                                            Balance: 0.00
                                         </p>
                                     </div>
-                                ))}
-                            </div>
-                        )}
-
-                        {/* DEPOSITE AMOUNT */}
-                        <div className={Style.PoolAdd_box_deposit}>
-                            <h4>Deposite Amount</h4>
-
-                            <div className={Style.PoolAdd_box_deposit_box}>
-                                <input type="text" placeholder="0" />
-                                <div
-                                    className={
-                                        Style.PoolAdd_box_deposit_box_input
-                                    }
-                                >
-                                    <p>
-                                        <small>UNI</small> Uniswap
-                                    </p>
-                                    <p
-                                        className={
-                                            Style.PoolAdd_box_deposit_box_input_item
-                                        }
-                                    >
-                                        Balance: 0.00
-                                    </p>
                                 </div>
-                            </div>
-                            <div className={Style.PoolAdd_box_deposit_box}>
-                                <input type="text" placeholder="0" />
-                                <div
-                                    className={
-                                        Style.PoolAdd_box_deposit_box_input
-                                    }
-                                >
-                                    <p>
-                                        <small>ETH</small> Ether
-                                    </p>
-                                    <p
+                                <div className={Style.PoolAdd_box_deposit_box}>
+                                    <input type="text" placeholder="0" />
+                                    <div
                                         className={
-                                            Style.PoolAdd_box_deposit_box_input_balance
+                                            Style.PoolAdd_box_deposit_box_input
                                         }
                                     >
-                                        Balance: 0.00
-                                    </p>
+                                        <p>
+                                            <small>ETH</small> Ether
+                                        </p>
+                                        <p
+                                            className={
+                                                Style.PoolAdd_box_deposit_box_input_balance
+                                            }
+                                        >
+                                            Balance: 0.00
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/*  RIGHT  */}
-                    <div className={Style.PoolAdd_box_price_right}>
-                        <h4>Set Price Range</h4>
-                        <div className={Style.PoolAdd_box_price_right_box}>
-                            <p
-                                className={
-                                    Style.PoolAdd_box_price_right_box_para
-                                }
-                            >
-                                Current Price: 41.1494 Testv4 per WETH
-                            </p>
-                            <Image
-                                src={images.wallet}
-                                alt="wallet"
-                                height={80}
-                                width={80}
-                            />
-                            <h3>Your position will appear here.</h3>
-                        </div>
-
-                        {/* PRICE RANGE */}
-
-                        <div className={Style.PoolAdd_box_price_right_range}>
-                            <div
-                                className={
-                                    Style.PoolAdd_box_price_right_range_box
-                                }
-                            >
-                                <p>Min Price</p>
+                        {/*  RIGHT  */}
+                        <div className={Style.PoolAdd_box_price_right}>
+                            <h4>Set Price Range</h4>
+                            <div className={Style.PoolAdd_box_price_right_box}>
                                 <p
                                     className={
-                                        Style.PoolAdd_box_price_right_range_box_para
-                                    }
-                                    onClick={(e) =>
-                                        minPriceRange(e.target.innerText)
+                                        Style.PoolAdd_box_price_right_box_para
                                     }
                                 >
-                                    <small>-</small> {minPrice} <small>+</small>
+                                    Current Price: 41.1494 Testv4 per WETH
                                 </p>
-                                <p>Testv4 per WETH</p>
+                                <Image
+                                    src={images.wallet}
+                                    alt="wallet"
+                                    height={100}
+                                    width={100}
+                                />
+                                <h3>Your position will appear here.</h3>
                             </div>
-                            {/* MAX */}
+
+                            {/* PRICE RANGE */}
+
                             <div
-                                className={
-                                    Style.PoolAdd_box_price_right_range_box
-                                }
+                                className={Style.PoolAdd_box_price_right_range}
                             >
-                                <p>Max Price</p>
-                                <p
+                                <div
                                     className={
-                                        Style.PoolAdd_box_price_right_range_box_para
-                                    }
-                                    onClick={(e) =>
-                                        maxPriceRange(e.target.innerText)
+                                        Style.PoolAdd_box_price_right_range_box
                                     }
                                 >
-                                    <small>-</small> {maxPrice} <small>+</small>
-                                </p>
-                                <p>Testv4 per WETH</p>
+                                    <p>Min Price</p>
+                                    <p
+                                        className={
+                                            Style.PoolAdd_box_price_right_range_box_para
+                                        }
+                                        onClick={(e) =>
+                                            minPriceRange(e.target.innerText)
+                                        }
+                                    >
+                                        <small>-</small> {minPrice}{" "}
+                                        <small>+</small>
+                                    </p>
+                                    <p>Testv4 per WETH</p>
+                                </div>
+                                {/* MAX */}
+                                <div
+                                    className={
+                                        Style.PoolAdd_box_price_right_range_box
+                                    }
+                                >
+                                    <p>Max Price</p>
+                                    <p
+                                        className={
+                                            Style.PoolAdd_box_price_right_range_box_para
+                                        }
+                                        onClick={(e) =>
+                                            maxPriceRange(e.target.innerText)
+                                        }
+                                    >
+                                        <small>-</small> {maxPrice}{" "}
+                                        <small>+</small>
+                                    </p>
+                                    <p>Testv4 per WETH</p>
+                                </div>
                             </div>
-                        </div>
-                        {/* BUTTON */}
-                        <div className={Style.PoolAdd_box_price_right_button}>
-                            <button>Full Range</button>
-                        </div>
-                        <div className={Style.PoolAdd_box_price_right_amount}>
-                            <button>Enter a amount</button>
+                            {/* BUTTON */}
+                            <div
+                                className={Style.PoolAdd_box_price_right_button}
+                            >
+                                <button>Full Range</button>
+                            </div>
+                            <div
+                                className={Style.PoolAdd_box_price_right_amount}
+                            >
+                                <button>Enter a amount</button>
+                            </div>
                         </div>
                     </div>
                 </div>
