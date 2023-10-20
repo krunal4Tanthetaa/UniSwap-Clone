@@ -21,11 +21,19 @@ async function main() {
     // await swapMultiHop.deployed(); // Wait for deployment to complete
     // console.log(`SwapMultiHop deployed to: ${swapMultiHop.address}`);
 
-    // Deploy SingleSwapToken
-    const SingleSwapToken = await ethers.getContractFactory("SingleSwapToken");
-    const singleSwapToken = await SingleSwapToken.deploy();
-    await singleSwapToken.deployed(); // Wait for deployment to complete
-    console.log(`SingleSwapToken deployed to: ${singleSwapToken.address}`);
+    // // Deploy SingleSwapToken
+    // const SingleSwapToken = await ethers.getContractFactory("SingleSwapToken");
+    // const singleSwapToken = await SingleSwapToken.deploy();
+    // await singleSwapToken.deployed(); // Wait for deployment to complete
+    // console.log(`SingleSwapToken deployed to: ${singleSwapToken.address}`);
+
+
+    // USER DATA CONTRACT
+    const UserStorageData = await ethers.getContractFactory("UserStorageData");
+    const userStorageData = await UserStorageData.deploy();
+    await userStorageData.deployed(); // Wait for deployment to complete
+    console.log(`UserStorageData deployed to: ${userStorageData.address}`);
+
 }
 
 main().catch((error) => {
